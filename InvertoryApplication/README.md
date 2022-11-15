@@ -5,3 +5,10 @@ curl http://localhost:8442/createInvertory -d '{"name": "Iphone" , "price" : 200
 Building steps: 
 
 .\gradlew clean build
+.\gradlew.bat clean build -x test
+
+
+
+Swagger 
+
+http://localhost:8442/swagger-ui/index.html
