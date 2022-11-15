@@ -1,4 +1,4 @@
-package org.invertory;
+package org.invertory.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
