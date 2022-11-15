@@ -1,4 +1,4 @@
-package org.invertory;
+package org.invertory.controller;
 
 import org.invertory.model.Invertory;
 import org.invertory.service.InvertoryService;
