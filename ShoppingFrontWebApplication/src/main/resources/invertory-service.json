@@ -1,0 +1,77 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Invertory application microservice",
+    "version": "1",
+    "title": "Invertory application",
+    "termsOfService": "TERMS OF SERVICE URL",
+    "contact": {
+      "name": "Asen Nikolaev",
+      "url": "URL",
+      "email": "asen.nikolaev95@abv.bg"
+    },
+    "license": {
+      "name": "LICENSE",
+      "url": "LICENSE URL"
+    }
+  },
+  "host": "localhost:8442",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "invertory-controller",
+      "description": "Invertory Controller"
+    }
+  ],
+  "paths": {
+    "/createInvertory": {
+      "post": {
+        "tags": [
+          "invertory-controller"
+        ],
+        "summary": "createInvertory",
+        "operationId": "createInvertoryUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "invertory",
+            "description": "invertory",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Invertory"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Invertory": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "title": "Invertory"
+    }
+  }
+}
