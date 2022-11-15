@@ -5,8 +5,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
+
+import java.util.Collections;
 
 
 @Configuration
@@ -19,9 +23,21 @@ public class SpringFoxConfig {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("org.invertory.controller"))
                 .paths(PathSelectors.any())
-                .build();
+                .build().apiInfo(getApiInfo());
     }
 
+    private ApiInfo getApiInfo() {
+        return new ApiInfo(
+                "Invertory application",
+                "Invertory application microservice",
+                "1",
+                "TERMS OF SERVICE URL",
+                new Contact("Asen Nikolaev", "URL", "asen.nikolaev95@abv.bg"),
+                "LICENSE",
+                "LICENSE URL",
+                Collections.emptyList()
+        );
+    }
 
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("swagger-ui.html")
