@@ -16,6 +16,9 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter:$spring_boot"
     implementation "org.springframework.boot:spring-boot-starter-web:$spring_boot"
     implementation "org.springframework.boot:spring-boot-starter-data-elasticsearch:$spring_boot"
+
+
+    testImplementation "org.springframework.boot:spring-boot-starter-test:$spring_boot"
 }
 
 test {
