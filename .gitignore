@@ -249,3 +249,7 @@ modules.xml
 
 ### Intellij ###
 .idea
+pom.xml
+
+
+ShoppingFrontWebApplication/src/generated
