@@ -59,6 +59,7 @@ task generateApi {
         config.setInputSpec("file:///$projectDir/$swaggerSourceFile")
         config.setOutputDir("$projectDir")
         config.setLang('spring')
+//        config.setLang('java')
         config.setAdditionalProperties([
                 'interfaceOnly' : 'true',
                 'apiPackage'    : 'com.invertory.api',
