@@ -58,7 +58,7 @@ task generateApi {
         def config = new CodegenConfigurator()
         config.setInputSpec("file:///$projectDir/$swaggerSourceFile")
         config.setOutputDir("$projectDir")
-        config.setLang('spring')
+        config.setLang('java')
 //        config.setLang('java')
         config.setAdditionalProperties([
                 'interfaceOnly' : 'true',
@@ -81,6 +81,12 @@ dependencies {
     generatedCompile "org.springframework.boot:spring-boot-starter:$spring_boot"
     generatedCompile "org.springframework.boot:spring-boot-starter-web:$spring_boot"
     generatedCompile "org.springframework.boot:spring-boot-starter-validation:$spring_boot"
+    generatedCompile "com.squareup.okhttp:okhttp:2.7.2"
+    generatedCompile "com.squareup.okhttp:logging-interceptor:2.7.2"
+
+    generatedCompile "com.google.code.gson:gson:2.7"
+    generatedCompile "joda-time:joda-time:2.10.9"
+
 }
 
 sourceSets {
