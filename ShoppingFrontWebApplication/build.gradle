@@ -76,14 +76,8 @@ configurations {
 }
 
 dependencies {
-    generatedCompile "io.springfox:springfox-swagger2:$springfox"
-    generatedCompile  "io.springfox:springfox-swagger-ui:$springfox"
-    generatedCompile "org.springframework.boot:spring-boot-starter:$spring_boot"
-    generatedCompile "org.springframework.boot:spring-boot-starter-web:$spring_boot"
-    generatedCompile "org.springframework.boot:spring-boot-starter-validation:$spring_boot"
     generatedCompile "com.squareup.okhttp:okhttp:2.7.2"
     generatedCompile "com.squareup.okhttp:logging-interceptor:2.7.2"
-
     generatedCompile "com.google.code.gson:gson:2.7"
     generatedCompile "joda-time:joda-time:2.10.9"
 
