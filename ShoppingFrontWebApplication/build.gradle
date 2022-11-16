@@ -30,9 +30,18 @@ dependencies {
     implementation "io.springfox:springfox-boot-starter:$springfox"
     implementation "io.springfox:springfox-swagger-ui:$springfox"
 
+    implementation "com.squareup.okhttp:okhttp:2.7.2"
+    implementation "com.squareup.okhttp:logging-interceptor:2.7.2"
+    implementation "com.google.code.gson:gson:2.7"
+    implementation "joda-time:joda-time:2.10.9"
+    implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+
+
 
     compileOnly "org.projectlombok:lombok:$lombok"
     annotationProcessor "org.projectlombok:lombok:$lombok"
+
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
 
     testImplementation "org.springframework.boot:spring-boot-starter-test:$spring_boot"
 }
