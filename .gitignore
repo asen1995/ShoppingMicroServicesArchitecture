@@ -253,3 +253,12 @@ pom.xml
 
 
 ShoppingFrontWebApplication/src/generated
+ShoppingFrontWebApplication/.gitignore
+ShoppingFrontWebApplication/.swagger-codegen-ignore
+ShoppingFrontWebApplication/.travis.yml
+ShoppingFrontWebApplication/build.sbt
+ShoppingFrontWebApplication/git_push.sh
+ShoppingFrontWebApplication/docs/Invertory.md
+ShoppingFrontWebApplication/docs/InvertoryControllerApi.md
+ShoppingFrontWebApplication/src/main/AndroidManifest.xml
+ShoppingFrontWebApplication/src/test/java/com/invertory/api/InvertoryControllerApiTest.java
