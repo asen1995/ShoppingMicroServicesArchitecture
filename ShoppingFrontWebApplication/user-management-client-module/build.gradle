@@ -56,8 +56,8 @@ task generateApi {
         config.setLang('java')
         config.setAdditionalProperties([
                 'interfaceOnly' : 'true',
-                'apiPackage'    : 'com.invertory.api',
-                'modelPackage'  : 'com.invertory.model',
+                'apiPackage'    : 'com.user.management.api',
+                'modelPackage'  : 'com.user.management.model',
                 'sourceFolder'  : swaggerTargetFolder
         ])
         new DefaultGenerator().opts(config.toClientOptInput()).generate()
