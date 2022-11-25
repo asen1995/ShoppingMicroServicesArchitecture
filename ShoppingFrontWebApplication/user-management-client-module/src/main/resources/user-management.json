@@ -1,0 +1,76 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "User management application microservice",
+    "version": "1",
+    "title": "User management application",
+    "termsOfService": "TERMS OF SERVICE URL",
+    "contact": {
+      "name": "Asen Nikolaev",
+      "url": "URL",
+      "email": "asen.nikolaev95@abv.bg"
+    },
+    "license": {
+      "name": "LICENSE",
+      "url": "LICENSE URL"
+    }
+  },
+  "host": "localhost:8449",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "user-controller",
+      "description": "User Controller"
+    }
+  ],
+  "paths": {
+    "/registerUser": {
+      "post": {
+        "tags": [
+          "user-controller"
+        ],
+        "summary": "registerUser",
+        "operationId": "registerUserUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "user",
+            "description": "user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "title": "User"
+    }
+  }
+}
