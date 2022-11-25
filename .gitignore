@@ -290,3 +290,4 @@ ShoppingFrontWebApplication/user-management-client-module/settings.gradle
 ShoppingFrontWebApplication/user-management-client-module/gradle/wrapper/gradle-wrapper.jar
 ShoppingFrontWebApplication/user-management-client-module/gradle/wrapper/gradle-wrapper.properties
 ShoppingFrontWebApplication/user-management-client-module/src/test/java/com/invertory/api/UserControllerApiTest.java
+ShoppingFrontWebApplication/user-management-client-module/src/test/java/com/user/management/api/UserControllerApiTest.java
