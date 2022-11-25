@@ -1,0 +1,105 @@
+buildscript {
+            dependencies {
+                classpath('io.swagger:swagger-codegen:2.2.2')
+            }
+        }
+
+
+plugins {
+    id 'java'
+}
+
+group 'org.shopping.front.web'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+    implementation "io.springfox:springfox-swagger2:$springfox"
+    implementation "io.springfox:springfox-boot-starter:$springfox"
+    implementation "io.springfox:springfox-swagger-ui:$springfox"
+
+    implementation "com.squareup.okhttp:okhttp:2.7.2"
+    implementation "com.squareup.okhttp:logging-interceptor:2.7.2"
+    implementation "com.google.code.gson:gson:2.7"
+    implementation "joda-time:joda-time:2.10.9"
+
+    implementation 'org.apache.logging.log4j:log4j-api:2.19.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.19.0'
+}
+
+
+//generate from api
+import io.swagger.codegen.config.CodegenConfigurator
+import io.swagger.codegen.DefaultGenerator
+
+def swaggerSourceFile = 'src/main/resources/user-management.json'
+def swaggerTargetFolder = 'src/generated/java'
+
+
+clean.doFirst {
+    delete("${projectDir}/$swaggerTargetFolder")
+}
+
+task generateApi {
+    inputs.file("$projectDir/$swaggerSourceFile")
+    outputs.dir("$projectDir/$swaggerTargetFolder")
+    doLast {
+        def config = new CodegenConfigurator()
+        config.setInputSpec("file:///$projectDir/$swaggerSourceFile")
+        config.setOutputDir("$projectDir")
+        config.setLang('java')
+        config.setAdditionalProperties([
+                'interfaceOnly' : 'true',
+                'apiPackage'    : 'com.user.management.api',
+                'modelPackage'  : 'com.user.management.model',
+                'sourceFolder'  : swaggerTargetFolder
+        ])
+        new DefaultGenerator().opts(config.toClientOptInput()).generate()
+    }
+}
+
+
+configurations {
+    generatedCompile
+}
+
+dependencies {
+    generatedCompile "io.springfox:springfox-swagger2:$springfox"
+    generatedCompile  "io.springfox:springfox-swagger-ui:$springfox"
+    generatedCompile "com.squareup.okhttp:okhttp:2.7.2"
+    generatedCompile "com.squareup.okhttp:logging-interceptor:2.7.2"
+    generatedCompile "com.google.code.gson:gson:2.7"
+    generatedCompile "joda-time:joda-time:2.10.9"
+
+}
+
+sourceSets {
+    generated {
+        compileClasspath = configurations.generatedCompile
+    }
+    main {
+        compileClasspath += generated.output
+        runtimeClasspath += generated.output
+    }
+    test {
+        compileClasspath += generated.output
+        runtimeClasspath += generated.output
+    }
+}
+
+//define so it can be accessible from outside
+sourceSets.main.java.srcDirs = ['src/generated/java','src/main/java']
+
+compileGeneratedJava.dependsOn generateApi
+classes.dependsOn generatedClasses
+compileJava.dependsOn compileGeneratedJava
+
+test {
+    useJUnitPlatform()
+}

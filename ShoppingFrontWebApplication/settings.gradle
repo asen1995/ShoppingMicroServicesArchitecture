@@ -1,3 +1,4 @@
 rootProject.name = 'ShoppingFrontWebApplication'
 include 'invertory-client-module'
+include 'user-management-client-module'
 
