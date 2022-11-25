@@ -33,6 +33,7 @@ dependencies {
     testImplementation "org.springframework.boot:spring-boot-starter-test:$spring_boot"
 
     implementation project(':invertory-client-module')
+    implementation project(':user-management-client-module')
 }
 
 test {
