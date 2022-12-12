@@ -34,8 +34,8 @@ public class ArticuleServiceImpl implements ArticuleService {
 
             return invertoryUsingPOSTResponse;
         } catch (ApiException e) {
-            logger.error("Invertory service returned error : {}", () -> e.getMessage());
-            throw new RuntimeException(e);
+            logger.error("Invertory service returned error : {}", () -> e.getResponseBody());
+            throw new RuntimeException(e.getResponseBody());
         }
     }
 }

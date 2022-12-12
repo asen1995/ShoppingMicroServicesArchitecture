@@ -16,3 +16,4 @@ http://localhost:9000/swagger-ui/index.html
 
 Invertory-client-module is REST microservice. we generate classes from its swagger file in order to 
 call it.
+
