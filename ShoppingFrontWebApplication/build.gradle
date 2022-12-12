@@ -1,6 +1,9 @@
 plugins {
     id 'java'
+    id 'war'
 }
+
+
 
 group 'org.shopping.front.web'
 version '1.0-SNAPSHOT'
@@ -8,6 +11,12 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
+
+
+war {
+    // Specify the output directory for the generated WAR file
+    destinationDir = file("/target")
+}u
 
 dependencies {
 
@@ -23,6 +32,8 @@ dependencies {
     implementation "io.springfox:springfox-boot-starter:$springfox"
     implementation "io.springfox:springfox-swagger-ui:$springfox"
 
+    implementation "com.squareup.okhttp:okhttp:2.7.2"
+
     implementation 'org.mapstruct:mapstruct:1.5.3.Final'
 
     compileOnly "org.projectlombok:lombok:$lombok"
@@ -33,7 +44,6 @@ dependencies {
     testImplementation "org.springframework.boot:spring-boot-starter-test:$spring_boot"
 
     implementation project(':invertory-client-module')
-    implementation project(':user-management-client-module')
 }
 
 test {
